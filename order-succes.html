@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Order Successful - DNS The Online Clothing Store</title>
+    <link rel="stylesheet" href="./styles.css">
+    <style>
+        .success-container {
+            text-align: center;
+            padding: 60px 20px;
+            margin: 40px auto;
+            max-width: 600px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        .success-icon {
+            color: #28a745; /* Green */
+            width: 80px;
+            height: 80px;
+        }
+        .success-container h1 {
+            font-size: 2.5rem;
+            margin-top: 20px;
+            margin-bottom: 15px;
+        }
+        .success-container p {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="site-header">
+      <div class="container">
+        <div class="header-wrapper">
+          <a href="./index.html" class="logo">DNS</a>
+          <nav class="main-nav">
+            <ul>
+              <li><a href="./index.html">Home</a></li>
+              <li><a href="./product.html">Products</a></li>
+              <li><a href="./contact.html">Contact</a></li>
+              <li>
+                <a href="./cart.html" class="cart-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+                  <span class="cart-count">0</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <div class="container">
+        <div class="success-container">
+            <svg class="success-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+            </svg>
+            <h1>Order Placed Successfully!</h1>
+            <p>Thank you for your purchase. A confirmation email has been sent to you.</p>
+            <a href="./index.html" class="btn btn-primary">Continue Shopping</a>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <!-- You can copy your standard footer here if you wish -->
+    </footer>
+
+    <script src="./cart.js"></script>
+    <script>
+        // On the success page, ensure the cart icon in the header is updated to 0.
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof updateCartIcon === 'function') {
+                updateCartIcon();
+            }
+        });
+    </script>
+</body>
+</html>
