@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout - DNS The Online Clothing Store</title>
+    <meta name="description" content="Complete your purchase at DNS - The Online Clothing Store." />
+    <meta name="author" content="DNS" />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
+    <script src="https://khalti.s3.ap-south-1.amazonaws.com/KPG/dist/2020.12.17.0.0.0/khalti-checkout.compact.js"></script>
+
+</head>
+
+<body>
+  
+    <header class="site-header">
+      <div class="container">
+        <div class="header-wrapper">
+          <a href="./index.html" class="logo">DNS</a>
+          <nav class="main-nav">
+            <ul>
+              <li><a href="./index.html">Home</a></li>
+              <li><a href="./product.html">Products</a></li>
+              <li><a href="./contact.html">Contact</a></li>
+              <li>
+                <a href="./cart.html" class="cart-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+                  <span class="cart-count">0</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <button class="mobile-menu-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <div class="page-header">
+        <div class="container">
+            <h1>Checkout</h1>
+        </div>
+    </div>
+
+    <div class="container">
+        <form class="checkout-form">
+            <!-- Left Column: Billing Details -->
+            <div class="billing-details">
+                <h3>Billing details</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="first-name">First name *</label>
+                        <input type="text" id="first-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="last-name">Last name *</label>
+                        <input type="text" id="last-name" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="company">Company name (optional)</label>
+                    <input type="text" id="company">
+                </div>
+                <div class="form-group">
+                    <label for="country">Country / Region *</label>
+                    <input type="text" id="country" value="Nepal" required>
+                </div>
+                <div class="form-group">
+                    <label for="address">Street address *</label>
+                    <input type="text" id="address" placeholder="House number and street name" required>
+                </div>
+                 <div class="form-group">
+                    <input type="text" id="apartment" placeholder="Apartment, suite, unit, etc. (optional)">
+                </div>
+                <div class="form-group">
+                    <label for="city">Town / City *</label>
+                    <input type="text" id="city" required>
+                </div>
+                 <div class="form-group">
+                    <label for="state">State / Zone *</label>
+                    <select id="state" required>
+                        <option value="Bagmati" selected>Bagmati</option>
+                        <option value="Gandaki">Gandaki</option>
+                        <option value="Lumbini">Lumbini</option>
+                        <!-- Add other zones as needed -->
+                    </select>
+                </div>
+                 <div class="form-group">
+                    <label for="zip">Postcode / ZIP (optional)</label>
+                    <input type="text" id="zip">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone *</label>
+                    <input type="tel" id="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email address *</label>
+                    <input type="email" id="email" required>
+                </div>
+                 <div class="form-group checkbox-group">
+                    <input type="checkbox" id="create-account">
+                    <label for="create-account">Create an account?</label>
+                </div>
+                <h3>Additional information</h3>
+                 <div class="form-group">
+                    <label for="order-notes">Order notes (optional)</label>
+                    <textarea id="order-notes" placeholder="Notes about your order, e.g. special notes for delivery."></textarea>
+                </div>
+            </div>
+
+            <!-- Right Column: Your Order -->
+            <div class="your-order">
+                <h3>Your order</h3>
+                <div class="order-review-box">
+                    <div class="order-line header" id="checkout-order-header">
+                        <span>Product</span>
+                        <span>Subtotal</span>
+                    </div>
+                    <!-- Order items will be dynamically inserted here by JS -->
+                    <div id="checkout-order-items"></div>
+                     <div class="order-line">
+                        <span>Subtotal</span>
+                        <span id="checkout-subtotal">NPR 0</span>
+                    </div>
+                     <div class="order-line total">
+                        <span>Total</span>
+                        <span id="checkout-total">NPR 0</span>
+                    </div>
+                    <div class="payment-methods">
+                        <div class="payment-option">
+                             <input type="radio" id="bank-transfer" name="payment" value="bank" checked>
+                             <label for="bank-transfer">Direct bank transfer</label>
+                             <div class="payment-details">
+                                 Make your payment directly into our bank account. Please use your Order ID as the payment reference.
+                             </div>
+                        </div>
+                         <div class="payment-option">
+                             <input type="radio" id="khalti" name="payment" value="khalti">
+                             <label for="khalti">Khalti</label>
+                        </div>
+                         <div class="payment-option">
+                             <input type="radio" id="esewa" name="payment" value="esewa">
+                             <label for="esewa">eSewa</label>
+                        </div>
+                    </div>
+                    <p class="terms">
+                        <input type="checkbox" id="terms" required>
+                        <label for="terms">I have read and agree to the website <a href="#">terms and conditions</a> *</label>
+                    </p>
+                    <button type="submit" class="btn btn-primary btn-block">Place order</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-col">
+            <h3>DNS Store</h3>
+            <p>Your one-stop shop for the latest fashion trends at affordable prices.</p>
+          </div>
+          <div class="footer-col">
+            <h3>Quick Links</h3>
+            <ul>
+              <li><a href="./index.html">Home</a></li>
+              <li><a href="./product.html">Products</a></li>
+              <li><a href="./contact.html">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h3>Contact Us</h3>
+            <address>
+              <p>Pokhara, Nepal</p>
+              <p>Street no.17, Gharipatan</p>
+              <p>Phone: 994630000</p>
+              <p>Email: info@dnsstore.com</p>
+            </address>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>© 2025 DNS Store. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- =================================================== -->
+<!--     CUSTOM ESEWA CONFIRMATION MODAL                 -->
+<!-- =================================================== -->
+<div id="esewa-modal" class="payment-modal-overlay hidden">
+    <div class="payment-modal-content">
+        <button id="esewa-modal-close" class="modal-close-btn">×</button>
+        <h2>Confirm Your Order</h2>
+        <p>You are about to pay with eSewa.</p>
+        <div class="modal-order-details">
+            <img src="./assets/esewa_logo.png" alt="eSewa Logo" class="payment-logo">
+            <div class="modal-amount">
+                <span>Total Amount:</span>
+                <span id="esewa-modal-amount">NPR 0.00</span>
+            </div>
+        </div>
+        <button id="esewa-confirm-payment-btn" class="btn btn-primary">Pay with eSewa</button>
+    </div>
+</div>
+
+<!-- Hidden eSewa form (you might already have this) -->
+<form action="https://uat.esewa.com.np/epay/main" method="POST" id="esewa-form" style="display:none;">
+    <input type="hidden" id="t-amt" name="tAmt" value="">
+    <input type="hidden" id="amt" name="amt" value="">
+    <input type="hidden" id="tx-amt" name="txAmt" value="0">
+    <input type="hidden" id="psc" name="psc" value="0">
+    <input type="hidden" id="pdc" name="pdc" value="0">
+    <!-- IMPORTANT: Replace with your LIVE merchant code -->
+    <input type="hidden" id="scd" name="scd" value="EPAYTEST"> 
+    <input type="hidden" id="pid" name="pid" value="">
+    <!-- IMPORTANT: Replace with your LIVE success/failure URLs -->
+    <input type="hidden" id="su" name="su" value="http://127.0.0.1:5500/order-success.html?payment=esewa">
+    <input type="hidden" id="fu" name="fu" value="http://127.0.0.1:5500/payment-failure.html">
+</form>
+
+    <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
+    <script src="./product.js"></script>
+    <script src="./cart.js"></script>
+    <script src="./checkout.js"></script> <!-- We will create this file next -->
+    <script src="./main.js"></script>
+</body>
+</html>
